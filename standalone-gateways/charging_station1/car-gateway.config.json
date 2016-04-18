@@ -1,0 +1,25 @@
+{
+    "number_of_sensors"      : 2,
+
+    "interval"               : 2000,
+
+    "gatewayId"              : "5714ae565e84ef4848340307",
+
+    "host"                   : "localhost",
+
+    "port"                   : "3003",
+
+    "data_listener_endpoint" : "/api/v1.0/event",
+
+    "sensor_names"           : ["free_slots"],
+
+    "sensor_metadata"        : [
+		{
+			"sensor_id"   : "app123_sen301",
+			"sensor_type" : "free_slots",
+			"sensor_data" : [
+				{ "type": "float", "name": "slots", "value" : "<val>", "min" : 0, "max" : 10}
+			]
+        }
+	]
+}

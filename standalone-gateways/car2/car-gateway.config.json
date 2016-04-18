@@ -1,0 +1,43 @@
+{
+    "number_of_sensors"      : 2,
+
+    "interval"               : 2000,
+
+    "gatewayId"              : "5714adcc5e84ef4848340302",
+
+    "host"                   : "localhost",
+
+    "port"                   : "3003",
+
+    "data_listener_endpoint" : "/api/v1.0/event",
+
+    "sensor_names"           : ["car_charge", "car_tyre_pressure", "car_position"],
+
+    "sensor_metadata"        : [
+		{
+			"sensor_id"   : "app123_sen201",
+			"sensor_type" : "car_charge",
+			"sensor_data" : [
+				{ "type": "float", "name": "charge", "value" : "<val>", "min" : 0, "max" : 100}
+			]
+        },
+		{
+			"sensor_id"   : "app123_sen202",
+			"sensor_type" : "car_tyre_pressure",
+			"sensor_data" : [
+				{ "type": "float", "name": "fl", "value" : "<val>", "min" : 0, "max" : 10},
+				{ "type": "float", "name": "fr", "value" : "<val>", "min" : 0, "max" : 10},
+				{ "type": "float", "name": "bl", "value" : "<val>", "min" : 0, "max" : 10},
+				{ "type": "float", "name": "br", "value" : "<val>", "min" : 0, "max" : 10}
+			]
+        },
+		{
+			"sensor_id"   : "app123_sen202",
+			"sensor_type" : "car_position",
+			"sensor_data" : [
+				{ "type": "float", "name": "latitude", "value" : "<val>", "min" : 0, "max" : 90},
+				{ "type": "float", "name": "longitude", "value" : "<val>", "min" : 0, "max" : 180}
+			]
+        }
+  ]
+}

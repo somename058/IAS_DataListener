@@ -1,0 +1,42 @@
+{
+    "body": [
+        {
+            "sensor_data": [
+                {
+                    "max": 48,
+                    "name": "temp",
+                    "type": "float",
+                    "value": "27.75"
+                },
+                {
+                    "max": 48,
+                    "name": "temp2",
+                    "type": "float",
+                    "value": "19.03"
+                }
+            ],
+            "sensor_id": "app123_sen101",
+            "sensor_type": "temperature_sensor"
+        },
+        {
+            "sensor_data": [
+                {
+                    "max": 100,
+                    "name": "charge",
+                    "type": "float",
+                    "value": "87.28"
+                }
+            ],
+            "sensor_id": "app123_sen102",
+            "sensor_type": "charge_sensor"
+        }
+    ],
+    "header": {
+        "app_id": "570775ac3ef6925c6f9fd566",
+        "from": "gateway",
+        "gateway_id": "gateway_123",
+        "number_body_items": 2,
+        "time_stamp": 1460884915599,
+        "to": "data_listener"
+    }
+}

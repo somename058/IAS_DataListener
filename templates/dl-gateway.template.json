@@ -1,0 +1,22 @@
+{
+	"header": {
+		"number_of_actions" : "3",
+		"message_id" : "<ts>",
+		"gateway_id" : "<gid>",
+		"from" : "data_listener",
+		"to" : "gateway",
+		"curr_message_response" : {
+			"status_message" : "<string>",
+			"status" : "<value>"
+		}
+	},
+	"body": [
+		{		
+			"target_sensor_id" : "<sensor_id>",
+			"sensor_type" : "<string>",
+			"action_data" : [
+				{"action_name":"setxxxxx" , "action_cmd" : "<cmd to be evaled>"}
+			]		
+		}		
+	]
+}
