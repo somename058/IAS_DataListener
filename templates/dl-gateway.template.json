@@ -11,12 +11,12 @@
 		}
 	},
 	"body": [
-		{		
-			"target_sensor_id" : "<sensor_id>",
+		{
+			"sensor_id" : "<sensor_id>",
 			"sensor_type" : "<string>",
 			"action_data" : [
 				{"action_name":"setxxxxx" , "action_cmd" : "<cmd to be evaled>"}
-			]		
-		}		
+			]
+		}
 	]
 }

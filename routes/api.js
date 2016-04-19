@@ -5,6 +5,9 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var HashMap = require('hashmap');
+var request = require('request');
+var config = require('../utils/servers.js')
+
 router.get("/v1.0/data_listener/gateway_data",function(req,res,next){
    res.send("This is sample");
 });
@@ -12,10 +15,40 @@ router.get("/v1.0/data_listener/gateway_data",function(req,res,next){
 
 var queue = [],str;
 var map = new HashMap();
-var q = []
-q.push([ { action_name: 'setFLpressure', action_cmd: 'car_tyre_pressure.setfl(55)' } ])
-map.set("5714adcc5e84ef4848340301", q)
-console.log(map)
+function readMap() {
+    map.forEach(function(value, key) {
+            console.log(key + " : " + value);
+    });
+}
+
+router.post("/v1.0/data_listener/event_command",function(req,res,next){
+    console.log("New actions received:")
+    var gid = req.body.header.gateway_id;
+    if(map.has(gid))
+    {
+        console.log("sensor exists its queue, "+map.get(gid));
+        queue = map.get(string)
+        for(var i=0;i<req.body.body.length;i++){
+        queue.push(req.body.body[i].sensor_action_data);
+        }
+        map.set(gid, queue)
+    }else{
+        var q = []
+        for(var i=0;i<req.body.body.length;i++){
+            q.push(req.body.body[i].sensor_action_data);
+            
+        }
+        map.set(gid, q)
+    }
+    
+    console.log("now map looks like:");
+    map.forEach(function(value, key) {
+            console.log(key )
+            for(var j=0;j<value.length;j++)
+            console.log( " : " +value[j].action_name);
+    });
+});
+
 
 router.post("/v1.0/data_listener/gateway_data",function(req, res, next){
     console.log("POST req received");
@@ -66,10 +99,17 @@ router.post("/v1.0/data_listener/gateway_data",function(req, res, next){
     }
 
     jsonres.body[0].action_data = actions
-    
-
-
-
+    /*******************/
+    request.post(
+        'http://'+config.servers.logic_server.hostname+':'+config.servers.logic_server.port+'/api/v1.0/event',
+        { form: { js_code: js_code } },
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body)
+            }
+        }
+    );
+       /******************/
     
 
     // 4. add command from holding queue if any
